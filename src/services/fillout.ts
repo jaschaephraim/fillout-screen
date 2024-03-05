@@ -1,6 +1,6 @@
 import { Axios } from 'axios';
 import env from 'env';
-import { StatusError, isStatusError } from 'middleware/errorHandler';
+import { StatusError } from 'middleware/errorHandler';
 import * as z from 'zod';
 
 // Client for interacting with the Fillout API
@@ -94,9 +94,7 @@ export async function getSubmissions(
   queryParams: GetSubmissionsQueryParams
 ) {
   const endpoint = `/forms/${formId}/submissions`;
-  const response = await filloutClient.get<
-    GetSubmissionsResponse | ErrorResponse
-  >(endpoint, {
+  const response = await filloutClient.get<GetSubmissionsResponse>(endpoint, {
     params: queryParams,
   });
 
