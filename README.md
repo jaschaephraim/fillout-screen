@@ -2,7 +2,7 @@
 
 This repo fulfills the requirements specified by https://fillout.notion.site/Software-engineering-screen-fbd58fd78f59495c99866b91b1358221
 
-The server itself can be accessed at https://
+The server itself can be accessed at http://fillout-screen-production.up.railway.app
 
 ## Implementation Notes
 
