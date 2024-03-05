@@ -1,9 +1,13 @@
 import env from 'env';
 import express from 'express';
 import errorHandler from 'middleware/errorHandler';
+import morgan from 'morgan';
 import getFilteredResponses from 'routes/getFilteredResponses';
 
 const app = express();
+
+// Basic logging
+app.use(morgan('tiny'));
 
 // GET paginated and filtered responses by formId
 app.get('/:formId/filteredResponses', getFilteredResponses);

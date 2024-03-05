@@ -10,6 +10,7 @@ The server itself can be accessed at http://fillout-screen-production.up.railway
 - The server is build using `express.js`
 - Requests to the Fillout API are performed using `axios`
 - Query variables are parsed and typed using `zod`
+- Request logging using `morgan`
 - Environment variables are parsed and typed using `envsafe`
 - A few basic tests are implemented using `jest`
 - For the sake of simplicity I'm running the server using `tsx` in production
