@@ -1,0 +1,31 @@
+{
+  "extends": ["airbnb-base", "airbnb-typescript/base", "prettier"],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "ignorePatterns": ["dist"],
+  "rules": {
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_",
+        "caughtErrorsIgnorePattern": "^_"
+      }
+    ],
+    "import/prefer-default-export": "off",
+    "import/order": [
+      "error",
+      {
+        "newlines-between": "always",
+        "alphabetize": {
+          "order": "asc"
+        },
+        "groups": ["builtin", "external", "internal"],
+        "pathGroups": [],
+        "pathGroupsExcludedImportTypes": ["builtin", "object"]
+      }
+    ],
+    "no-await-in-loop": "off",
+    "no-plusplus": "off"
+  }
+}
