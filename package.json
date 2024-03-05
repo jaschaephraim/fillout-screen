@@ -1,12 +1,11 @@
 {
-  "name": "ts-boilerplate",
+  "name": "fillout-screen",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.ts",
   "engines": {
     "node": "20"
   },
-  "packageManager": "^pnpm@8.5.0",
   "type": "module",
   "scripts": {
     "prepare": "husky install",
@@ -17,8 +16,10 @@
     "dev": "tsx watch ./src/index.ts",
     "start": "tsx ./src/index.ts"
   },
-  "keywords": [],
-  "author": "",
+  "author": {
+    "name": "Jascha Ephraim",
+    "email": "jaschaephraim@gmail.com"
+  },
   "license": "ISC",
   "devDependencies": {
     "@jest/globals": "^29.7.0",
