@@ -14,6 +14,8 @@ The server itself can be accessed at http://fillout-screen-production.up.railway
 - A few basic tests are implemented using `jest`
 - For the sake of simplicity I'm running the server using `tsx` in production
 
+Basic error handling is implemented using a custom error handler. Any error status codes and messages from the Fillout API are forwarded.
+
 In an effort to make the code easily scannable I've included many brief comments without formal JSDocs.
 
 There are just a couple unit tests for easily isolated filtering logic.

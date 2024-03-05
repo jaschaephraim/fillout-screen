@@ -1,5 +1,6 @@
 import { Axios } from 'axios';
 import env from 'env';
+import { StatusError, isStatusError } from 'middleware/errorHandler';
 import * as z from 'zod';
 
 // Client for interacting with the Fillout API
@@ -73,18 +74,38 @@ type GetSubmissionsResponse = {
   pageCount: number;
 };
 
+// Fillout API error response
+type ErrorResponse = {
+  statusCode: number;
+  error: string;
+  message: string;
+};
+
+// Type guard to check and cast if an API response is an error response
+export function isErrorResponse(
+  response: GetSubmissionsResponse | ErrorResponse
+): response is ErrorResponse {
+  return (response as ErrorResponse).error !== undefined;
+}
+
 // Get response body from submissions endpoint for given formId and query params
 export async function getSubmissions(
   formId: string,
   queryParams: GetSubmissionsQueryParams
 ) {
   const endpoint = `/forms/${formId}/submissions`;
-  const response = await filloutClient.get<GetSubmissionsResponse>(endpoint, {
+  const response = await filloutClient.get<
+    GetSubmissionsResponse | ErrorResponse
+  >(endpoint, {
     params: queryParams,
   });
 
+  // Forward any failure status code and message
   if (response.status >= 400) {
-    throw new Error('unable to fetch submissions from fillout API');
+    const message = isErrorResponse(response.data)
+      ? response.data.message
+      : 'unable to fetch submissions from fillout API';
+    throw new StatusError(message, response.status);
   }
   return response.data;
 }
