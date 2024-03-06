@@ -13,6 +13,7 @@ The server itself can be accessed at http://fillout-screen-production.up.railway
 - Request logging using `morgan`
 - Environment variables are parsed and typed using `envsafe`
 - A few basic tests are implemented using `jest`
+- Commit hooks that check types, linting, and formatting using `husky`
 - For the sake of simplicity I'm running the server using `tsx` in production
 
 Basic error handling is implemented using a custom error handler. Any error status codes and messages from the Fillout API are forwarded.
