@@ -7,7 +7,7 @@ The server itself can be accessed at http://fillout-screen-production.up.railway
 ## Implementation Notes
 
 - As a base for this repo I've used my personal TypeScript boilerplate with `eslint` and `prettier` configs
-- The server is build using `express.js`
+- The server is built using `express.js`
 - Requests to the Fillout API are performed using `axios`
 - Query variables are parsed and typed using `zod`
 - Request logging using `morgan`
